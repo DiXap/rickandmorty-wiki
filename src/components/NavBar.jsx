@@ -2,7 +2,7 @@
 // @ts-nocheck
 import { useContext, useState, useEffect } from "react";
 import { CharactersContext } from "../context/Context";
-import { AiOutlineMenu, AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 
 const NavBar = () => {
   const { makeQuery, query } = useContext(CharactersContext);
