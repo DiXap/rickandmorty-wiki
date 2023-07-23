@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 // @ts-nocheck
+import { useContext } from "react";
 import {
   RxChevronLeft,
   RxChevronRight,
@@ -7,31 +8,36 @@ import {
   RxDoubleArrowRight,
 } from "react-icons/rx";
 
-const NavPage = ({ pageInfo, page, setPage }) => {
-  const handlePage = (numPage) => {
-    return `${page.split("=")[0]}=${numPage}`;
-  };
+import { CharactersContext } from "../context/Context";
+
+const NavPage = () => {
+  const {prevPage, nextPage, lastPage, gotoLastPage, setApiUrl, setPage} = useContext(CharactersContext)
+
+//   const handlePage = (numPage) => {
+//     return `${page.split("=")[0]}=${numPage}`;
+//   };
+
   return (
     <div className="flex flex-row justify-end items-center gap-1 mt-5">
-      {pageInfo.prev && (
+      {prevPage && (
         <>
-          <button className="text-2xl" onClick={() => setPage(handlePage(1))}>
+          <button className="text-2xl" onClick={() => gotoLastPage(1)}>
             <RxDoubleArrowLeft />
           </button>
-          <button className="text-2xl" onClick={() => setPage(pageInfo.prev)}>
+          <button className="text-2xl" onClick={() => setPage(prevPage)}>
             <RxChevronLeft />
           </button>
         </>
       )}
       {/* TODO: Considerar castear a int
        <p>Page {pageInfo.next.split('=')[1] - 1}</p> */}
-      <p className="mx-2">{page.split("=")[1]}</p>
-      {pageInfo.next && (
+      {/* <p className="mx-2">{page.split("=")[1]}</p> */}
+      {nextPage && (
         <>
           <button
             className="text-2xl"
             onClick={() => {
-              setPage(pageInfo.next);
+              setPage(nextPage);
             }}
           >
             <RxChevronRight />
@@ -39,7 +45,7 @@ const NavPage = ({ pageInfo, page, setPage }) => {
           </button>
           <button
             className="text-2xl"
-            onClick={() => setPage(handlePage(pageInfo.pages))}
+            onClick={() => gotoLastPage(lastPage)}
           >
             <RxDoubleArrowRight />
           </button>
