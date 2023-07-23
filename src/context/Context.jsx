@@ -14,6 +14,7 @@ export const ContextProvider = (props) => {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState("");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +32,7 @@ export const ContextProvider = (props) => {
       } catch (error) {
         console.log(error);
         setLoading(true);
+        setError(true);
       }
     };
 
@@ -53,6 +55,7 @@ export const ContextProvider = (props) => {
       value={{
         characters,
         loading,
+        error,
         page,
         nextPage,
         prevPage,

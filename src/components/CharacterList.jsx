@@ -8,12 +8,12 @@ import { CharactersContext } from "../context/Context";
 import NotFound from "./NotFound";
 
 const CharacterList = () => {
-  const { characters, loading } = useContext(CharactersContext);
+  const { characters, loading, error } = useContext(CharactersContext);
 
   return (
     <div className="max-w-[1200px] mx-auto mt-16">
       { loading ? (
-        <NotFound />
+        <NotFound error={error}/>
       ) : (
         <>
           <NavPage />
