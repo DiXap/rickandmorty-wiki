@@ -16,7 +16,15 @@ export const ContextProvider = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  const gotoTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {
+    gotoTop();
     const fetchData = async () => {
       const url = page === "" ? apiUrl : page;
       try {
@@ -62,6 +70,7 @@ export const ContextProvider = (props) => {
         lastPage,
         query,
         setPage,
+        gotoTop,
         gotoPage,
         makeQuery,
       }}
