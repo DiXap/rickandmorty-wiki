@@ -15,7 +15,7 @@ const NavPage = () => {
     useContext(CharactersContext);
 
   return (
-    <div className="flex flex-row justify-end items-center gap-1 mt-5 pr-3">
+    <div className="flex flex-row justify-end items-center gap-1 pt-4 pb-3 pr-3">
       {prevPage && (
         <>
           <button className="text-2xl" onClick={() => gotoPage(1)}>
