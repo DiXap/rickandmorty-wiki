@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
-    <div className="font-poppins">
+    <div className="font-poppins mb-3 max-w-[1240px]">
       <NavBar />
       <CharacterList />
     </div>
