@@ -11,7 +11,7 @@ const CharacterList = () => {
   const { characters, loading, error } = useContext(CharactersContext);
 
   return (
-    <div className="max-w-[1200px] mx-auto mt-16">
+    <div className="mx-auto mt-16">
       { loading ? (
         <NotFound error={error}/>
       ) : (
