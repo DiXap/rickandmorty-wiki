@@ -11,6 +11,7 @@ const NavBar = () => {
 
   const handleNav = () => {
     setNav(!nav);
+    console.log('object');
   };
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const NavBar = () => {
               value={query}
             />
           </div>
-          <div className="mr-auto text-gray-700 flex-none pl-3" onClick={handleNav}>
+          <div className="mx-auto text-gray-700 flex-none pl-3" onClick={handleNav}>
             <AiOutlineClose size={25} />
           </div>
         </div>
