@@ -22,6 +22,7 @@ const CharacterList = () => {
               return <CharacterCard key={character.id} character={character} />;
             })}
           </div>
+          <NavPage />
         </>
       )}
     </div>
