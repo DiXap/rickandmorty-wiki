@@ -5,7 +5,7 @@ const CharacterInfo = ({ character }) => {
 
   return (
     <section className="p-2 text-gray-600">
-      <h2 className="text-2xl font-semibold mb-2">{character.name}</h2>
+      <h2 className="text-2xl font-semibold mb-2 break-words">{character.name}</h2>
       {/* <p>{`${statusIcon[character.status]} - ${character.species}`}</p> */}
       {/* <p className="text-sm">Species:</p> */}
       <p className="">{character.species}</p>
