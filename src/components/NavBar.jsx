@@ -46,8 +46,8 @@ const NavBar = () => {
         <div
           className={
             nav
-              ? "sm:hidden absolute top-0 right-0 bottom-0 left-0 flex justify-between items-center gap-3 w-full bg-black/40 ease-in duration-300"
-              : "sm:hidden absolute top-0 right-0 bottom-0 left-[-100%] flex justify-between items-center gap-3 w-full bg-black/40 ease-in duration-300"
+              ? "sm:hidden absolute top-0 right-0 bottom-0 left-0 flex justify-between items-center gap-4 w-full bg-black/40 ease-in duration-300"
+              : "sm:hidden absolute top-0 right-0 bottom-0 left-[-100%] flex justify-between items-center gap-4 w-full bg-black/40 ease-in duration-300"
           }
         >
           <div className="ml-auto flex-initial">
@@ -61,8 +61,8 @@ const NavBar = () => {
               value={query}
             />
           </div>
-          <div className="mr-auto text-gray-700 flex-none" onClick={handleNav}>
-            <AiOutlineClose size={20} />
+          <div className="mr-auto text-gray-700 flex-none pl-3" onClick={handleNav}>
+            <AiOutlineClose size={25} />
           </div>
         </div>
       </div>
