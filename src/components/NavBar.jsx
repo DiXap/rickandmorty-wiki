@@ -3,6 +3,7 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { CharactersContext } from "../context/Context";
 import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
+import AppIcon from '../assets/not-found.jpeg'
 
 const NavBar = () => {
   const { makeQuery, query } = useContext(CharactersContext);
@@ -33,7 +34,10 @@ const NavBar = () => {
       style={{ background: `${color}` }}
     >
       <div className="max-w-[1240px] m-auto flex justify-between items-center p-3">
-        <h1 className="mr-auto text-3xl">Rick & Morty</h1>
+        <div className="mr-auto flex items-center gap-2">
+            <img src={AppIcon} alt="" className="flex-initial rounded-full max-h-[30px]" />
+          <h1 className="text-2xl font-bold">Rick & Morty</h1>
+        </div>
         <div className="hidden sm:flex ml-auto">
           <input
             type="text"
