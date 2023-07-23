@@ -5,37 +5,15 @@ import CharacterCard from "./CharacterCard";
 import NavPage from "./NavPage";
 // Context
 import { CharactersContext } from "../context/Context";
+import NotFound from "./NotFound";
 
 const CharacterList = () => {
-  const { characters } = useContext(CharactersContext)
-//   const [characters, setCharacters] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [pageInfo, setPageInfo] = useState({});
-//   const [page, setPage] = useState(
-//     "https://rickandmortyapi.com/api/character/?page=1" // /?page=
-//   );
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       //   const response = await fetch(
-//       //     `https://rickandmortyapi.com/api/character/?page=${page}`
-//       //   );
-//       const response = await fetch(page);
-//       const data = await response.json();
-//       console.log(data);
-
-//       setCharacters(data.results);
-//       setPageInfo(data.info);
-//       setLoading(false);
-//     };
-
-//     fetchData();
-//   }, [page]);
+  const { characters, loading } = useContext(CharactersContext);
 
   return (
     <div className="max-w-[1200px] mx-auto mt-16">
-      {characters.lenght === 0 ? (
-        <h1>Loading</h1>
+      { loading ? (
+        <NotFound />
       ) : (
         <>
           <NavPage />

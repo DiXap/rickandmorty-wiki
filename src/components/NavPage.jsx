@@ -11,17 +11,14 @@ import {
 import { CharactersContext } from "../context/Context";
 
 const NavPage = () => {
-  const {prevPage, nextPage, lastPage, gotoLastPage, setApiUrl, setPage} = useContext(CharactersContext)
-
-//   const handlePage = (numPage) => {
-//     return `${page.split("=")[0]}=${numPage}`;
-//   };
+  const { page, prevPage, nextPage, lastPage, gotoPage, setPage } =
+    useContext(CharactersContext);
 
   return (
-    <div className="flex flex-row justify-end items-center gap-1 mt-5">
+    <div className="flex flex-row justify-end items-center gap-1 mt-5 pr-3">
       {prevPage && (
         <>
-          <button className="text-2xl" onClick={() => gotoLastPage(1)}>
+          <button className="text-2xl" onClick={() => gotoPage(1)}>
             <RxDoubleArrowLeft />
           </button>
           <button className="text-2xl" onClick={() => setPage(prevPage)}>
@@ -29,9 +26,7 @@ const NavPage = () => {
           </button>
         </>
       )}
-      {/* TODO: Considerar castear a int
-       <p>Page {pageInfo.next.split('=')[1] - 1}</p> */}
-      {/* <p className="mx-2">{page.split("=")[1]}</p> */}
+      <p>{page ? page.match(/(\d+)/)[0] : "1"}</p>
       {nextPage && (
         <>
           <button
@@ -41,12 +36,8 @@ const NavPage = () => {
             }}
           >
             <RxChevronRight />
-            {/* <RxDoubleArrowRight /> */}
           </button>
-          <button
-            className="text-2xl"
-            onClick={() => gotoLastPage(lastPage)}
-          >
+          <button className="text-2xl" onClick={() => gotoPage(lastPage)}>
             <RxDoubleArrowRight />
           </button>
         </>
