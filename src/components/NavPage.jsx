@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 // @ts-nocheck
+import { useContext } from "react";
 import {
   RxChevronLeft,
   RxChevronRight,
@@ -7,40 +8,36 @@ import {
   RxDoubleArrowRight,
 } from "react-icons/rx";
 
-const NavPage = ({ pageInfo, page, setPage }) => {
-  const handlePage = (numPage) => {
-    return `${page.split("=")[0]}=${numPage}`;
-  };
+import { CharactersContext } from "../context/Context";
+
+const NavPage = () => {
+  const { page, prevPage, nextPage, lastPage, gotoPage, setPage } =
+    useContext(CharactersContext);
+
   return (
-    <div className="flex flex-row justify-end items-center gap-1 mt-5">
-      {pageInfo.prev && (
+    <div className="flex flex-row justify-end items-center gap-1 mt-5 pr-3">
+      {prevPage && (
         <>
-          <button className="text-2xl" onClick={() => setPage(handlePage(1))}>
+          <button className="text-2xl" onClick={() => gotoPage(1)}>
             <RxDoubleArrowLeft />
           </button>
-          <button className="text-2xl" onClick={() => setPage(pageInfo.prev)}>
+          <button className="text-2xl" onClick={() => setPage(prevPage)}>
             <RxChevronLeft />
           </button>
         </>
       )}
-      {/* TODO: Considerar castear a int
-       <p>Page {pageInfo.next.split('=')[1] - 1}</p> */}
-      <p className="mx-2">{page.split("=")[1]}</p>
-      {pageInfo.next && (
+      <p>{page ? page.match(/(\d+)/)[0] : "1"}</p>
+      {nextPage && (
         <>
           <button
             className="text-2xl"
             onClick={() => {
-              setPage(pageInfo.next);
+              setPage(nextPage);
             }}
           >
             <RxChevronRight />
-            {/* <RxDoubleArrowRight /> */}
           </button>
-          <button
-            className="text-2xl"
-            onClick={() => setPage(handlePage(pageInfo.pages))}
-          >
+          <button className="text-2xl" onClick={() => gotoPage(lastPage)}>
             <RxDoubleArrowRight />
           </button>
         </>

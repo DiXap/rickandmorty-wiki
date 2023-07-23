@@ -13,6 +13,7 @@ const CharacterCard = ({ character }) => {
   }, [character])
 
   return (
+    // <div className="ring-1 my-3 p-2 rounded-lg max-w-[230px] overflow-hidden">
     <div className="bg-slate-800 my-3 p-2 rounded-lg max-w-[230px] overflow-hidden">
       <div className="rounded-lg overflow-hidden relative">
         <img
